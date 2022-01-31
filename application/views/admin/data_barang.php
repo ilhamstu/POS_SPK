@@ -27,7 +27,11 @@
                                     </tr>
                                 </thead>
                                 <?php
-                                $no = 1;
+                                if (empty($this->uri->segment(3))) {
+                                $no=1;
+                                }elseif ($this->uri->segment(3)) {
+                                $no=$this->uri->segment(3)*5;
+                                }
                                 foreach ($results as $item) {?>
                                 <tbody>
                                     <tr class="even pointer">
@@ -48,6 +52,7 @@
                                 </tbody>
                                 <?php }?>
                             </table>
+                            <hr>
                             <?= $links; ?>
                         </div>
                     </div>
